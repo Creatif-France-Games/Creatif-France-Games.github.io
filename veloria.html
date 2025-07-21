@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CF GAMES</title>
-<link rel="icon" href="https://creatif-france-games.github.io/static/veloria.png" />
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CF GAMES</title>
+  <link rel="icon" href="https://creatif-france-games.github.io/static/veloria.png" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="top-logo" data-aos="fade-down" data-aos-duration="800">
-  <img src="https://creatif-france-games.github.io/static/veloria.png" alt="Veloria Logo" />
-</div>
+  <div class="top-logo" data-aos="fade-down" data-aos-duration="800">
+    <img src="https://creatif-france-games.github.io/static/veloria.png" alt="Veloria Logo" />
+  </div>
 
   <main>
     <h3 data-aos="fade-down" data-aos-duration="800">
@@ -29,49 +29,50 @@
     </h2>
   </main>
 
-<div class="footer">
-  <button id="legal-btn">Mentions légales</button>
-  <a href="https://creatif-france-games.github.io/politique.html"><button>Politique de confidentialité</button></a>
-</div>
-
-<div id="legal-modal" class="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); color:#eee; overflow-y:auto; z-index:9999;">
-  <div style="background:#222; max-width:500px; margin:6% auto; padding:25px 30px; border-radius:8px; box-shadow:0 0 15px #007bff; position:relative;">
-    <span id="close-legal" style="position:absolute; top:12px; right:18px; font-size:28px; font-weight:bold; cursor:pointer; color:#00e1ff;">&times;</span>
-    <h2 style="margin-top:0; color:#00e1ff;">Mentions légales</h2>
-    <p><strong>Éditeur :</strong><br>CF GAMES (pseudo)<br>Email : creatif.france@outlook.com</p>
-    <p><strong>Hébergeur :</strong><br>GitHub, Inc.<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</p>
-    <p><a href="https://github.com" target="_blank" style="color:#00e1ff;">github.com</a></p>
-    <p><strong>GitHub :</strong><br><a href="https://github.com/Team-CF-Games/cf-site" target="_blank" style="color:#00e1ff;">cf-site</a></p>
-    <p><strong>Responsabilité :</strong><br>L’éditeur fait au mieux, mais pas responsable des erreurs ou oublis.</p>
+  <div class="footer" data-aos="fade-up" data-aos-duration="800">
+    <button id="legal-btn">Mentions légales</button>
+    <a href="https://creatif-france-games.github.io/politique.html">
+      <button>Politique de confidentialité</button>
+    </a>
   </div>
-</div>
-  
-<script>
-  // Copier le code invitation au clic
-  const inviteCode = document.getElementById('invite-code');
-  inviteCode.parentElement.onclick = () => {
-    navigator.clipboard.writeText(inviteCode.textContent).then(() => {
-      inviteCode.parentElement.textContent = 'Code copié !';
-      setTimeout(() => {
-        inviteCode.parentElement.innerHTML = 'Code d\'invitation : <span id="invite-code">X72KP62P</span>';
-        // Ré-attacher l'événement après reset
-        document.getElementById('invite-code').parentElement.onclick = inviteCode.parentElement.onclick;
-      }, 1500);
-    });
-  };
 
-  // Modal logique
-  const legalModal = document.getElementById('legal-modal');
-  const policyModal = document.getElementById('policy-modal');
-  document.getElementById('legal-btn').onclick = () => legalModal.style.display = 'block';
-  document.getElementById('policy-btn').onclick = () => policyModal.style.display = 'block';
-  document.getElementById('close-legal').onclick = () => legalModal.style.display = 'none';
-  document.getElementById('close-policy').onclick = () => policyModal.style.display = 'none';
-  window.onclick = e => {
-    if(e.target === legalModal) legalModal.style.display = 'none';
-    if(e.target === policyModal) policyModal.style.display = 'none';
-  }
-</script>
+  <div id="legal-modal" class="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); color:#eee; overflow-y:auto; z-index:9999;">
+    <div style="background:#222; max-width:500px; margin:6% auto; padding:25px 30px; border-radius:8px; box-shadow:0 0 15px #007bff; position:relative;">
+      <span id="close-legal" style="position:absolute; top:12px; right:18px; font-size:28px; font-weight:bold; cursor:pointer; color:#00e1ff;">&times;</span>
+      <h2 style="margin-top:0; color:#00e1ff;">Mentions légales</h2>
+      <p><strong>Éditeur :</strong><br>CF GAMES (pseudo)<br>Email : creatif.france@outlook.com</p>
+      <p><strong>Hébergeur :</strong><br>GitHub, Inc.<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</p>
+      <p><a href="https://github.com" target="_blank" style="color:#00e1ff;">github.com</a></p>
+      <p><strong>GitHub :</strong><br><a href="https://github.com/Team-CF-Games/cf-site" target="_blank" style="color:#00e1ff;">cf-site</a></p>
+      <p><strong>Responsabilité :</strong><br>L’éditeur fait au mieux, mais pas responsable des erreurs ou oublis.</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    // Copier le code invitation au clic
+    const inviteCode = document.getElementById('invite-code');
+    inviteCode.parentElement.onclick = () => {
+      navigator.clipboard.writeText(inviteCode.textContent).then(() => {
+        inviteCode.parentElement.textContent = 'Code copié !';
+        setTimeout(() => {
+          inviteCode.parentElement.innerHTML = 'Code d\'invitation : <span id="invite-code">X72KP62P</span>';
+          document.getElementById('invite-code').parentElement.onclick = inviteCode.parentElement.onclick;
+        }, 1500);
+      });
+    };
+
+    // Modal Mentions légales
+    const legalModal = document.getElementById('legal-modal');
+    document.getElementById('legal-btn').onclick = () => legalModal.style.display = 'block';
+    document.getElementById('close-legal').onclick = () => legalModal.style.display = 'none';
+    window.onclick = e => {
+      if (e.target === legalModal) legalModal.style.display = 'none';
+    };
+  </script>
 
 </body>
 </html>
+
