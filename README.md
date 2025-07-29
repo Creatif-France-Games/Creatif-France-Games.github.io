@@ -6,3 +6,6 @@ Le code de base à été créé par ChatGPT et amélioré, modifié et adapté p
 
 # License ⚖ 
 Consultez la license dans le fichier license.
+
+# Une blague ?
+Rickrollez vos amis avec l'URL https://creatif-france-games.github.io/article.html !
