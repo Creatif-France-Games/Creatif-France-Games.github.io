@@ -2,73 +2,218 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="google-site-verification" content="sEcMkLwxEd5Sut_dSOQ8DBDDIBRbIuHTrUYlOzVyFuM" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>CF GAMES</title>
 <link rel="icon" href="https://creatif-france-games.github.io/static/cfgames.png" />
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+<meta name="google-site-verification" content="sEcMkLwxEd5Sut_dSOQ8DBDDIBRbIuHTrUYlOzVyFuM" />
 
-<div class="top-logo" data-aos="fade-down" data-aos-duration="800">
-  <img src="https://creatif-france-games.github.io/static/cfgames.png" alt="CF GAMES Logo" />
-</div>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- AOS for animations -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-<h1 data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">CF GAMES</h1>
-
-<p data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">CF Games, créateur de Créatif France et Veloria, serveurs MultiCraft.</p>
-<p>Fournisseur du nom de domaine cfgames.fr.nf :</p>
-  <a href='http://www.azote.org/' title='Nom de domaine' target='_blank'><img src='http://www.azote.org/pub/azote_88_31_bleu.gif ' alt='Nom de domaine' border="0" /></a>
-
-<div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-  <a href="https://cf-events.netlify.app" class="btn">Évènements</a>
-<a href="https://creatif-france.netlify.app" class="btn">Créatif France</a>
-  <a href="https://creatif-france-games.github.io/faq.html" class="btn">FAQ</a>
-  <a href="https://creatif-france-games.github.io/news.html" class="btn">News</a>
-  <a href="https://creatif-france-games.github.io/veloria.html" class="btn">Veloria (pas finie)</a>
-  <a href="https://urlr.me/yvzUFX" class="btn">Contact (Google Form)</a>
-<a href="https://creatif-france-games.github.io/luanti_modcrafter" class="btn">Luanti ModCrafter</a>
-</div>
-
-<iframe src="https://cf-games-bot.onrender.com/" title="Bot CF GAMES" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600"></iframe>
-
-<h2 data-aos="zoom-in" data-aos-duration="800" data-aos-delay="700" style="color:#00e1ff;">Serveurs MultiCraft</h2>
-<p data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">Veloria V2: survie PVP avec économie. Code d'invitation : 3D5G901G</p>
-<p data-aos="fade-up" data-aos-duration="800" data-aos-delay="900">Créatif France : build libre, code d'invitation : 432IBSK4.</p>
-
-<div style="height: 100px;"></div>
-
-<div class="footer">
-  <button id="legal-btn">Mentions légales</button>
-  <a href="https://creatif-france-games.github.io/politique.html"><button>Politique de confidentialité</button></a>
-</div>
-
-<div id="legal-modal" class="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); color:#eee; overflow-y:auto; z-index:9999;">
-  <div style="background:#222; max-width:500px; margin:6% auto; padding:25px 30px; border-radius:8px; box-shadow:0 0 15px #007bff; position:relative;">
-    <span id="close-legal" style="position:absolute; top:12px; right:18px; font-size:28px; font-weight:bold; cursor:pointer; color:#00e1ff;">&times;</span>
-    <h2 style="margin-top:0; color:#00e1ff;">Mentions légales</h2>
-    <p><strong>Éditeur :</strong><br>CF GAMES (pseudo)<br>Email : creatif.france@outlook.com</p>
-    <p><strong>Hébergeur :</strong><br>GitHub, Inc.<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</p>
-    <p><a href="https://github.com" target="_blank" style="color:#00e1ff;">github.com</a></p>
-    <p><strong>Responsabilité :</strong><br>L’éditeur fait au mieux, mais pas responsable des erreurs ou oublis.</p>
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init({
-    once: true,
-    easing: 'ease-out-cubic',
-    duration: 800,
-  });
-  const legalModal = document.getElementById('legal-modal');
-  document.getElementById('legal-btn').onclick = () => legalModal.style.display = 'block';
-  document.getElementById('close-legal').onclick = () => legalModal.style.display = 'none';
-  window.onclick = e => {
-    if(e.target === legalModal) legalModal.style.display = 'none';
-  }
+    // Configuration Tailwind pour des couleurs et une police personnalisées
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'cfg-blue': '#007bff',
+                    'cfg-cyan': '#00e1ff',
+                    'cfg-dark': '#0f0f0f',
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                },
+            }
+        }
+    }
 </script>
+</head>
+<!-- Body en noir, texte blanc, centré, avec padding ajusté (pb-8) -->
+<body class="bg-black text-white min-h-screen flex flex-col items-center pt-10 pb-8 font-sans">
 
+    <!-- Mobile Menu Button (Top-Left) -->
+    <!-- Visible uniquement sur mobile (md:hidden) -->
+    <button id="menu-toggle" class="fixed top-4 left-4 z-50 p-3 bg-cfg-blue hover:bg-cfg-cyan text-white rounded-xl shadow-lg transition-all duration-300 md:hidden">
+        <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- Icône Hamburger (par défaut) -->
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+
+    <!-- Side Navigation Menu / Desktop Links -->
+    <nav id="side-menu" class="fixed top-0 left-0 h-full w-64 bg-gray-900 bg-opacity-95 shadow-2xl z-40 transform -translate-x-full transition-transform duration-500 ease-in-out 
+                                 md:static md:w-full md:h-auto md:bg-transparent md:shadow-none md:flex md:justify-center md:gap-4 md:transform-none md:mb-10
+                                 pt-20 md:pt-0">
+        
+        <!-- Liens de navigation -->
+        <div class="flex flex-col gap-4 p-6 md:flex-row md:p-0 md:justify-center">
+            <a href="https://cf-events.netlify.app" class="bg-cfg-blue hover:bg-cfg-cyan text-black font-bold py-3 px-6 rounded-xl shadow-lg shadow-cfg-blue/50 transition-colors duration-300 block text-center" data-aos="fade-right" data-aos-delay="100">Évènements</a>
+            <a href="https://creatif-france-games.github.io/faq.html" class="bg-cfg-blue hover:bg-cfg-cyan text-black font-bold py-3 px-6 rounded-xl shadow-lg shadow-cfg-blue/50 transition-colors duration-300 block text-center" data-aos="fade-right" data-aos-delay="200">FAQ</a>
+            <a href="https://creatif-france-games.github.io/news.html" class="bg-cfg-blue hover:bg-cfg-cyan text-black font-bold py-3 px-6 rounded-xl shadow-lg shadow-cfg-blue/50 transition-colors duration-300 block text-center" data-aos="fade-right" data-aos-delay="300">News</a>
+            <a href="https://urlr.me/yvzUFX" class="bg-cfg-blue hover:bg-cfg-cyan text-black font-bold py-3 px-6 rounded-xl shadow-lg shadow-cfg-blue/50 transition-colors duration-300 block text-center" data-aos="fade-right" data-aos-delay="400">Contact (Google Form)</a>
+            <a href="https://creatif-france-games.github.io/luanti_modcrafter" class="bg-cfg-blue hover:bg-cfg-cyan text-black font-bold py-3 px-6 rounded-xl shadow-lg shadow-cfg-blue/50 transition-colors duration-300 block text-center" data-aos="fade-right" data-aos-delay="500">Luanti ModCrafter</a>
+        </div>
+    </nav>
+    
+    <!-- Zone d'ombre pour le menu mobile -->
+    <div id="menu-backdrop" class="fixed inset-0 bg-black/50 z-30 transition-opacity duration-300 hidden md:hidden"></div>
+    
+    <!-- Contenu Principal -->
+    <div class="flex flex-col items-center w-full max-w-4xl px-4 md:px-0">
+
+        <!-- Logo -->
+        <div class="top-logo mb-5" data-aos="fade-down" data-aos-duration="800">
+            <img src="https://creatif-france-games.github.io/static/cfgames.png" alt="CF GAMES Logo" class="w-60 max-w-full rounded-3xl shadow-xl shadow-cfg-blue/50" />
+        </div>
+
+        <!-- Titre Principal -->
+        <h1 class="text-5xl md:text-6xl font-extrabold text-cfg-cyan mb-5 text-center text-shadow-h1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            CF GAMES
+        </h1>
+
+        <!-- Description -->
+        <p class="text-lg text-gray-400 max-w-3xl text-center mb-8" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            CF Games, créateur de Créatif France et Veloria, serveurs MultiCraft.
+        </p>
+        
+        <!-- Partenaire Azote -->
+        <div class="mb-10" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+            <p class="text-sm text-gray-500 mb-2">Fournisseur du nom de domaine cfgames.fr.nf :</p>
+            <a href='http://www.azote.org/' title='Nom de domaine' target='_blank'>
+                <img src='http://www.azote.org/pub/azote_88_31_bleu.gif ' alt='Nom de domaine' class="mx-auto" />
+            </a>
+        </div>
+
+
+        <!-- Nouvelle Section Serveurs -->
+        <div class="w-full max-w-3xl p-6 md:p-10 border-2 border-white bg-black/70 rounded-3xl shadow-2xl shadow-cfg-blue/30 mb-16" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center text-shadow-h2">
+                Nos serveurs
+            </h2>
+            
+            <div class="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+                
+                <!-- Créatif France Server Card -->
+                <div class="flex flex-col items-center p-6 bg-gray-900 rounded-xl shadow-xl border border-cfg-cyan/50 w-full md:w-1/2 transition-all duration-300 hover:shadow-cfg-cyan/70 hover:border-cfg-cyan">
+                    <h3 class="text-2xl font-extrabold text-cfg-cyan mb-2">Créatif France</h3>
+                    <p class="text-sm text-gray-400 mb-4 italic text-center">Code d'invitation : 432IBSK4.</p>
+                    <a href="https://creatif-france.netlify.app" class="w-full">
+                        <button class="bg-green-500 hover:bg-green-600 text-black font-bold py-3 px-8 rounded-xl shadow-md shadow-green-500/50 w-full transition-colors duration-200">
+                            Accéder
+                        </button>
+                    </a>
+                    <p class="mt-4 text-gray-300 font-medium text-center">Un serveur créatif de construction et de RP.</p>
+                </div>
+                
+                <!-- Veloria Server Card -->
+                <div class="flex flex-col items-center p-6 bg-gray-900 rounded-xl shadow-xl border border-cfg-cyan/50 w-full md:w-1/2 transition-all duration-300 hover:shadow-cfg-cyan/70 hover:border-cfg-cyan">
+                    <h3 class="text-2xl font-extrabold text-cfg-cyan mb-2">Veloria V2</h3>
+                    <p class="text-sm text-gray-400 mb-4 italic text-center">Code d'invitation : 3D5G901G</p>
+                    <a href="https://creatif-france-games.github.io/veloria.html" class="w-full">
+                        <button class="bg-green-500 hover:bg-green-600 text-black font-bold py-3 px-8 rounded-xl shadow-md shadow-green-500/50 w-full transition-colors duration-200">
+                            Accéder
+                        </button>
+                    </a>
+                    <p class="mt-4 text-gray-300 font-medium text-center">Un serveur survie de PVP et de clans.</p>
+                </div>
+
+            </div>
+        </div>
+        <!-- Fin Section Serveurs -->
+
+        <!-- Iframe Bot CF GAMES -->
+        <iframe src="https://cf-games-bot.onrender.com/" title="Bot CF GAMES" class="rounded-xl border-2 border-gray-700 shadow-2xl shadow-cfg-blue/50 w-full mb-20" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600"></iframe>
+       
+    </div>
+    
+    <!-- Footer déplacé en bas de page (position statique/relative) -->
+    <div class="w-full max-w-4xl mt-16 p-4 bg-cfg-dark bg-opacity-95 flex justify-center gap-4 border-t border-gray-700 shadow-2xl shadow-black/80 z-20">
+        <button id="legal-btn" class="bg-cfg-blue hover:bg-cfg-cyan text-black font-bold py-2 px-5 rounded-xl shadow-lg shadow-cfg-blue/50 transition-colors duration-300 text-sm md:text-base">
+            Mentions légales
+        </button>
+        <a href="https://creatif-france-games.github.io/politique.html">
+            <button class="bg-cfg-blue hover:bg-cfg-cyan text-black font-bold py-2 px-5 rounded-xl shadow-lg shadow-cfg-blue/50 transition-colors duration-300 text-sm md:text-base">
+                Politique de confidentialité
+            </button>
+        </a>
+    </div>
+
+    <!-- Legal Modal -->
+    <div id="legal-modal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center hidden" aria-modal="true" role="dialog">
+        <div class="bg-gray-800 max-w-md w-11/12 m-4 p-6 rounded-xl shadow-2xl shadow-cfg-cyan/30 relative border border-cfg-cyan/50 max-h-[90vh] overflow-y-auto">
+            <span id="close-legal" class="absolute top-3 right-5 text-3xl font-bold cursor-pointer text-cfg-cyan hover:text-white transition-colors duration-200">&times;</span>
+            <h2 class="text-3xl font-extrabold text-cfg-cyan mb-4 mt-2">Mentions légales</h2>
+            <p class="mb-3 text-gray-300">
+                <strong class="text-white">Éditeur :</strong><br>CF GAMES (pseudo)<br>Email : creatif.france@outlook.com
+            </p>
+            <p class="mb-3 text-gray-300">
+                <strong class="text-white">Hébergeur :</strong><br>GitHub, Inc.<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis
+            </p>
+            <p class="mb-4">
+                <a href="https://github.com" target="_blank" class="text-cfg-cyan hover:text-cfg-blue underline transition-colors duration-200">github.com</a>
+            </p>
+            <p class="text-gray-300">
+                <strong class="text-white">Responsabilité :</strong><br>L’éditeur fait au mieux, mais pas responsable des erreurs ou oublis.
+            </p>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialisation de AOS (Animations On Scroll)
+        AOS.init({
+            once: true,
+            easing: 'ease-out-cubic',
+            duration: 800,
+        });
+
+        const legalModal = document.getElementById('legal-modal');
+        const legalBtn = document.getElementById('legal-btn');
+        const closeLegalBtn = document.getElementById('close-legal');
+        
+        const sideMenu = document.getElementById('side-menu');
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuBackdrop = document.getElementById('menu-backdrop');
+        const menuIcon = document.getElementById('menu-icon');
+
+        // --- Logique du Menu de Navigation (Hamburger) ---
+        function toggleMenu() {
+            // Bascule la classe pour faire apparaître/disparaître le menu.
+            // Retourne true si la classe '-translate-x-full' est AJOUTÉE (donc le menu est fermé)
+            const isMenuClosed = sideMenu.classList.toggle('-translate-x-full');
+            
+            // Bascule l'affichage de l'arrière-plan
+            menuBackdrop.classList.toggle('hidden');
+
+            // Change l'icône du bouton et sa couleur
+            if (isMenuClosed) {
+                // Menu vient d'être FERMÉ : affiche le hamburger
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                menuToggle.classList.add('bg-cfg-blue', 'hover:bg-cfg-cyan');
+                menuToggle.classList.remove('bg-red-600', 'hover:bg-red-700');
+            } else {
+                // Menu vient d'être OUVERT : affiche l'icône de fermeture (X)
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+                menuToggle.classList.remove('bg-cfg-blue', 'hover:bg-cfg-cyan');
+                menuToggle.classList.add('bg-red-600', 'hover:bg-red-700');
+            }
+        }
+
+        // Événements pour ouvrir/fermer le menu
+        menuToggle.addEventListener('click', toggleMenu);
+        menuBackdrop.addEventListener('click', toggleMenu); // Fermer en cliquant sur l'arrière-plan
+        
+        // --- Logique de la Modale (Mentions Légales) ---
+        legalBtn.onclick = () => legalModal.classList.remove('hidden');
+        closeLegalBtn.onclick = () => legalModal.classList.add('hidden');
+        window.onclick = e => {
+            if(e.target === legalModal) legalModal.classList.add('hidden');
+        }
+
+    </script>
 </body>
 </html>
