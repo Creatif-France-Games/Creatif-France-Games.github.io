@@ -1,8 +1,9 @@
 # Site de CF Games 🌐
 Ici vous trouverez le code source du site web de CF Games.
+[Lien](cfgames.fr.nf)
 
 # Qui à codé ça ? 🧑‍💻
-Le code de base à été créé par ChatGPT et amélioré, modifié et adapté par mes soins.
+Le code de base à été créé par Chatgprouté et amélioré, modifié et adapté par mes soins.
 
 # License ⚖ 
 Projet sous Licence MIT, sauf les fichier dans le dossier "static" All Right Reserved
